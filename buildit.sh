@@ -40,8 +40,7 @@ yum install -y \
   openssl-devel \
   sqlite-devel \
   libedit-devel \
-  uuid-devel\
-  systemd
+  uuid-devel
 
 mkdir $TARGET_DIR && cd $TARGET_DIR
 
@@ -84,8 +83,6 @@ cp ./third-party/pjproject/source/pjsip-apps/bin/pjsua-x86_64-unknown-linux-gnu 
 make install
 make config
 make basic-pbx
-systemctl enable asterisk
-systemctl start asterisk
 
 echo "Clean"
 
@@ -102,7 +99,6 @@ gmime-devel \
 gnutls-devel \
 gtk2-devel \
 kernel-devel \
-kernel-devel-$(uname-r) \
 libcurl-devel \
 libedit-devel \
 libtermcap-devel \

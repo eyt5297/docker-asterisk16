@@ -9,4 +9,5 @@ WORKDIR /tmp
 
 RUN sh ./buildit.sh
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/usr/sbin/asterisk"]
+CMD ["-c", "-vvvv", "-g"]
