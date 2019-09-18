@@ -59,7 +59,10 @@ echo "Configure..."
 echo "====4 pjsua build"
 sed -i '67d' ./third-party/pjproject/Makefile
 sed -i '60d' ./third-party/pjproject/Makefile
-sed -i 's/--disable-g711-codec//' ./third-party/pjproject/Makefile.rules
+#sed -i 's/--disable-g711-codec//' ./third-party/pjproject/Makefile.rules
+cd ./third-party/pjproject/source/
+./aconfigure -q --prefix=/opt/pjproject --disable-speex-codec --disable-speex-aec --disable-bcg729 --disable-gsm-codec --disable-ilbc-codec --disable-l16-codec --disable-g722-codec --disable-g7221-codec --disable-opencore-amr --disable-silk --disable-opus --disable-video --disable-v4l2 --disable-sound --disable-ext-sound --disable-sdl --disable-libyuv --disable-ffmpeg --disable-openh264 --disable-ipp --disable-libwebrtc --without-external-pa --without-external-srtp --disable-resample --enable-epoll
+cd ../../..
 
 echo "Building menuselect"
 make menuselect.makeopts
@@ -76,12 +79,11 @@ menuselect/menuselect --enable app_mp3  --enable func_pitchshift --enable app_ch
     menuselect.makeopts
 
 echo "Make"
-make menuselect.makeopts
 make
 
 echo "Install"
 cp ./third-party/pjproject/source/pjsip-apps/bin/pjsua-x86_64-unknown-linux-gnu /usr/sbin/pjsua
-make install
+#make install
 make config
 make basic-pbx
 
