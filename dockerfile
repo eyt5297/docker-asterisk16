@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:7
 
 MAINTAINER Evgeny Tevelevich "eyt5297@gmail.com"
 

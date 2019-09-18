@@ -40,7 +40,8 @@ yum install -y \
   openssl-devel \
   sqlite-devel \
   libedit-devel \
-  uuid-devel
+  uuid-devel\
+  systemd
 
 mkdir $TARGET_DIR && cd $TARGET_DIR
 
