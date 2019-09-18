@@ -40,6 +40,8 @@ yum install -y \
   openssl-devel \
   sqlite-devel \
   libedit-devel \
+  tree \
+  mc \
   uuid-devel
 
 mkdir $TARGET_DIR && cd $TARGET_DIR
@@ -57,8 +59,7 @@ echo "Configure..."
 echo "====4 pjsua build"
 sed -i '67d' ./third-party/pjproject/Makefile
 sed -i '60d' ./third-party/pjproject/Makefile
-cat ./third-party/pjproject/Makefile | grep "apps :="  -B1 -A7
-
+sed -i 's/--disable-g711-codec//' ./third-party/pjproject/Makefile.rules
 
 echo "Building menuselect"
 make menuselect.makeopts
