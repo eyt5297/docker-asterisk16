@@ -83,7 +83,7 @@ make
 
 echo "Install"
 cp ./third-party/pjproject/source/pjsip-apps/bin/pjsua-x86_64-unknown-linux-gnu /usr/sbin/pjsua
-#make install
+make install
 make config
 make basic-pbx
 
